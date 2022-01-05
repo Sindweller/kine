@@ -238,6 +238,8 @@ func (s *SQLLog) After(ctx context.Context, prefix string, revision, limit int64
 
 	rows, err := s.d.After(ctx, prefix, revision, limit)
 	if err != nil {
+		logrus.Errorf("after error")
+		logrus.Errorf(err.Error())
 		return 0, nil, err
 	}
 

@@ -334,6 +334,7 @@ func (l *LogStructured) Watch(ctx context.Context, prefix string, revision int64
 
 	rev, kvs, err := l.log.After(ctx, prefix, revision, 0)
 	if err != nil {
+		logrus.Errorf(err.Error())
 		logrus.Errorf("failed to list %s for revision %d", prefix, revision)
 		cancel()
 	}

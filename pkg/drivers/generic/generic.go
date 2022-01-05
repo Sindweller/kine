@@ -245,7 +245,8 @@ func Open(ctx context.Context, driverName, dataSourceName string, connPoolConfig
 }
 
 func (d *Generic) query(ctx context.Context, sql string, args ...interface{}) (*sql.Rows, error) {
-	logrus.Tracef("QUERY %v : %s", args, Stripped(sql))
+	//logrus.Tracef("QUERY %v : %s", args, Stripped(sql))
+	logrus.Errorf("QUERY %v : %s", args, Stripped(sql))
 	return d.DB.QueryContext(ctx, sql, args...)
 }
 
